@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Campaign — Retro Glam</title>
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .phone-mock{
+    width:260px; border-radius:28px; background:#111; padding:10px;
+    box-shadow:var(--shadow); margin:0 auto;
+  }
+  .phone-screen{ background:#fff; border-radius:20px; overflow:hidden; }
+  .ig-post{ aspect-ratio:1/1; background:var(--grad-hero); display:flex; align-items:center; justify-content:center; position:relative; }
+  .ig-post .cap{ font-family:'Bungee'; color:#fff; font-size:1.5rem; text-align:center; text-shadow:0 4px 0 rgba(59,30,119,0.4); transform:rotate(-3deg); }
+  .ig-post .sticker{ position:absolute; background:var(--gold); color:var(--purple-deep); font-weight:800; font-size:0.65rem; padding:5px 10px; border-radius:999px; }
+  .ig-caption{ padding:12px 14px; font-size:0.8rem; color:var(--ink-muted); }
+  .voucher-card{
+    background:linear-gradient(135deg, #f472b6, #db2777);
+    border-radius:var(--radius-md); padding:26px; color:#fff; position:relative; overflow:hidden;
+  }
+  .voucher-card .pct{
+    display:inline-block; background:var(--purple-deep); color:var(--gold); font-weight:800;
+    padding:6px 14px; border-radius:999px; font-size:0.85rem; margin-top:8px;
+  }
+  .platform-tag{ font-size:0.72rem; font-weight:700; color:var(--purple); background:var(--pink-soft); padding:4px 10px; border-radius:999px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/home" class="logo">Retro<span>Glam</span></a>
+    <nav class="mainnav" id="mainNav">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/social-campaign" class="active">Campaign</a></li>
+        <li><a href="/email-campaign">Email</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+  </div>
+</header>
+
+<section style="padding-top:56px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Part II — Social Media Marketing</span>
+      <h2>New Product Launch: "Retro Glam Drop"</h2>
+      <p>A short campaign introducing the Butterfly Glitter Flared Pants and the wider Retro Glam collection, paired with a 20% welcome voucher for new followers.</p>
+    </div>
+
+    <div class="grid grid-3" style="margin-bottom:20px;">
+      <div class="card feature-card">
+        <span class="platform-tag">Objective</span>
+        <h3 style="margin-top:12px;">Grow awareness</h3>
+        <p>Introduce Retro Glam to Gen Z shoppers aged 15–28 who love Y2K and 2000s pop-culture style.</p>
+      </div>
+      <div class="card feature-card">
+        <span class="platform-tag">Platforms</span>
+        <h3 style="margin-top:12px;">Instagram &amp; TikTok</h3>
+        <p>Reels-first content: try-on hauls, outfit remixes, and a countdown to launch day.</p>
+      </div>
+      <div class="card feature-card">
+        <span class="platform-tag">Offer</span>
+        <h3 style="margin-top:12px;">20% Welcome Voucher</h3>
+        <p>Followers who sign up during launch week get an exclusive Retro Glam Voucher.</p>
+      </div>
+    </div>
+
+    <div class="two-col" style="align-items:flex-start;">
+      <div class="phone-mock">
+        <div class="phone-screen">
+          <div class="ig-post">
+            <span class="sticker" style="top:14px; left:14px;">On Sale Now!</span>
+            <span class="sticker" style="bottom:14px; right:14px; background:#fff; color:var(--pink);">Best Seller</span>
+            <div class="cap">RETRO<br>GLAM</div>
+          </div>
+          <p class="ig-caption"><strong>@retroglam.ph</strong> — The Y2K revival you've been waiting for is finally here 💜 New arrivals dropping this week. Tap in before they sell out. #RetroGlam #Y2KFashion</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Poppins'; margin-bottom:10px;">Launch-week content calendar</h3>
+        <ul class="info-list">
+          <li><span class="ic">1</span> Teaser Reel — "Something 2000s is coming" countdown</li>
+          <li><span class="ic">2</span> Launch Post — full Retro Glam collection reveal + voucher code</li>
+          <li><span class="ic">3</span> Try-On Haul — styling the Butterfly Glitter Flared Pants 3 ways</li>
+          <li><span class="ic">4</span> UGC Repost — customer fit checks tagged #RetroGlam</li>
+          <li><span class="ic">5</span> Last-Call Story — 24-hour reminder before the voucher expires</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-40">
+      <h3 style="font-family:'Poppins'; margin-bottom:16px;">Promotional voucher creative</h3>
+      <div class="two-col" style="align-items:center;">
+        <div class="voucher-card">
+          <span class="badge-pill" style="background:rgba(255,255,255,0.2); color:#fff;">Retro Glam Voucher</span>
+          <h3 style="color:#fff; margin-top:12px;">20% off your first order</h3>
+          <p style="color:rgba(255,255,255,0.9); margin-top:6px;">Valid for new members during launch week only.</p>
+          <span class="pct">Code: RETRO20</span>
+        </div>
+        <div>
+          <p style="color:var(--ink-muted);">This same voucher creative anchors the Instagram carousel, TikTok pinned comment, and the email campaign below — keeping the offer consistent across every channel.</p>
+          <a href="/email-campaign" class="btn btn-dark" style="margin-top:16px; display:inline-block;">View the Email Campaign</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:70px;">
+  <div class="wrap">
+    <div>
+      <a href="/home" class="logo" style="color:#fff;">Retro<span>Glam</span></a>
+      <p style="margin-top:12px; color:rgba(255,255,255,0.7); max-width:32ch; font-size:0.9rem;">Y2K and 2000s-inspired fashion for the nostalgia generation.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul><li><a href="/shop">All Products</a></li><li><a href="/register">Join the Club</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="/contact">Contact Us</a></li><li><a href="/email-campaign">Newsletter</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Retro Glam. A fictional brand created for academic purposes.</div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

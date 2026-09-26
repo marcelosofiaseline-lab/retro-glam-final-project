@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Retro Glam</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/home" class="logo">Retro<span>Glam</span></a>
+    <nav class="mainnav" id="mainNav">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="/login" class="nav-cta">Log In</a>
+      <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<section style="padding:64px 0;">
+  <div class="wrap" style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; max-width:1000px;">
+    <div>
+      <span class="badge-pill">Welcome</span>
+      <h1 style="margin-top:16px; font-size:clamp(2rem,4vw,2.8rem);">Create your Retro Glam account</h1>
+      <p style="color:var(--ink-muted); margin-top:16px; max-width:38ch;">Sign up to unlock member pricing, early access to new drops, and your 20% welcome voucher — no mall trip required.</p>
+      <ul class="info-list" style="margin-top:24px;">
+        <li><span class="ic">%</span> 20% off your first order</li>
+        <li><span class="ic">★</span> Early access to limited drops</li>
+        <li><span class="ic">✉</span> Style drops straight to your inbox</li>
+      </ul>
+    </div>
+
+    <div class="form-card">
+      <h2 style="font-size:1.4rem; margin-bottom:22px;">Register</h2>
+      <form id="registerForm" action="/register" method="POST">
+        <div class="field-row">
+          <div class="field">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" required placeholder="Hannah">
+          </div>
+          <div class="field">
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" required placeholder="Reyes">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="hannah@example.com">
+        </div>
+        <div class="field">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" min="13" max="99" required placeholder="21">
+        </div>
+        <button type="submit" class="submit-btn">Create Account</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+      <p class="form-foot">Already have an account? <a href="/login">Log in</a></p>
+    </div>
+  </div>
+</section>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

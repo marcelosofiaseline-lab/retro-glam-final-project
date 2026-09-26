@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Campaign — Retro Glam</title>
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .email-shell{
+    max-width:560px; margin:0 auto; background:#fff; border-radius:var(--radius-md);
+    overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--line);
+  }
+  .email-meta{ background:#fdfbff; padding:16px 22px; border-bottom:1px solid var(--line); font-size:0.85rem; color:var(--ink-muted); }
+  .email-meta b{ color:var(--ink); }
+  .email-banner{
+    background:var(--grad-hero); padding:34px 24px; text-align:center; color:#fff;
+  }
+  .email-banner .logo-mini{ font-family:'Bungee'; font-size:1.1rem; margin-bottom:14px; }
+  .email-banner h1{ color:#fff; font-size:1.5rem; }
+  .email-body{ padding:32px 28px; }
+  .email-body p{ margin-bottom:14px; color:var(--ink); }
+  .email-cta{
+    display:block; text-align:center; background:var(--pink); color:#fff; padding:14px;
+    border-radius:999px; font-weight:800; margin:22px 0; text-transform:none;
+  }
+  .email-footer{
+    background:var(--purple-deep); color:rgba(255,255,255,0.8); padding:22px; text-align:center; font-size:0.78rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/home" class="logo">Retro<span>Glam</span></a>
+    <nav class="mainnav" id="mainNav">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/social-campaign">Campaign</a></li>
+        <li><a href="/email-campaign" class="active">Email</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+  </div>
+</header>
+
+<section style="padding-top:56px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Part III — Email Marketing</span>
+      <h2>Welcome offer email mockup</h2>
+      <p>Promotional email + welcome offer, sent to new subscribers to convert them into first-time buyers with a direct discount.</p>
+    </div>
+
+    <div class="grid grid-3" style="margin-bottom:36px;">
+      <div class="card feature-card">
+        <span class="platform-tag">Type</span>
+        <h3 style="margin-top:12px;">Promotional + Welcome Offer</h3>
+        <p>Converts newly acquired subscribers into paying customers while introducing the brand.</p>
+      </div>
+      <div class="card feature-card">
+        <span class="platform-tag">Audience</span>
+        <h3 style="margin-top:12px;">PH shoppers, 15–28</h3>
+        <p>Fans of nostalgic 2000s and Y2K style who can't find these pieces in local malls.</p>
+      </div>
+      <div class="card feature-card">
+        <span class="platform-tag">Goal</span>
+        <h3 style="margin-top:12px;">Claim the voucher</h3>
+        <p>One tap on "Claim My Discount" lands the reader on the Y2K collection page, code applied.</p>
+      </div>
+    </div>
+
+    <div class="email-shell">
+      <div class="email-meta">
+        <div><b>From:</b> Retro Glam &lt;hello@retroglam.ph&gt;</div>
+        <div><b>To:</b> Ms. J. Mendez</div>
+        <div><b>Subject:</b> Your Passion for Fashion Discount Starts Here!</div>
+      </div>
+      <div class="email-banner">
+        <div class="logo-mini">RETRO GLAM</div>
+        <h1>New arrival for your glamorous look</h1>
+      </div>
+      <div class="email-body">
+        <p>Hey bestie! 🦋</p>
+        <p>We know that feeling — hunting through mainstream shops for something that actually matches your vibe, and just... not finding it. 😅</p>
+        <p>That search ends today. As a welcome to <strong>Retro Glam</strong>, your passion for fashion discount is officially unlocked. ✨</p>
+        <p>First up worth grabbing? The <strong>Butterfly Glitter Flared Pants</strong> — glitter-flared, low-rise, and dripping with early-2000s pop-princess energy. Exactly the kind of piece you won't find folded on a mall rack.</p>
+        <a href="/register" class="email-cta">Claim My Discount</a>
+        <p>One tap and your exclusive voucher is instantly yours. No searching, no waiting, just straight to your code. 💗</p>
+        <p>Don't keep the early 2000s waiting.</p>
+        <p>xoxo,<br><strong>Retro Glam</strong></p>
+      </div>
+      <div class="email-footer">
+        retroglam.ph &nbsp;·&nbsp; hello@retroglam.ph &nbsp;·&nbsp; +63 917 123 4567<br>
+        Instagram &nbsp;·&nbsp; TikTok &nbsp;·&nbsp; Facebook<br>
+        You're receiving this email because you signed up at Retro Glam.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:70px;">
+  <div class="wrap">
+    <div>
+      <a href="/home" class="logo" style="color:#fff;">Retro<span>Glam</span></a>
+      <p style="margin-top:12px; color:rgba(255,255,255,0.7); max-width:32ch; font-size:0.9rem;">Y2K and 2000s-inspired fashion for the nostalgia generation.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul><li><a href="/shop">All Products</a></li><li><a href="/register">Join the Club</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="/contact">Contact Us</a></li><li><a href="/social-campaign">Campaigns</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Retro Glam. A fictional brand created for academic purposes.</div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

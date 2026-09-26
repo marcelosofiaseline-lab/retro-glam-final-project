@@ -1,0 +1,12 @@
+{
+  "name": "retro-glam",
+  "version": "1.0.0",
+  "description": "Retro Glam - Y2K & 2000s inspired clothing brand website (Final Project)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Retro Glam</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/home" class="logo">Retro<span>Glam</span></a>
+    <nav class="mainnav" id="mainNav">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/contact" class="active">Contact</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="/register" class="nav-cta">Join the Club</a>
+      <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:56px;">
+  <div class="wrap">
+    <div class="section-head center" style="margin:0 auto 44px;">
+      <span class="kicker">Get in touch</span>
+      <h2>We'd love to hear from you</h2>
+      <p>Questions about an order, a collab idea, or just want to talk 2000s fashion? Send us a message.</p>
+    </div>
+
+    <div class="two-col" style="align-items:flex-start;">
+      <div class="form-card">
+        <form id="contactForm">
+          <div class="field-row">
+            <div class="field">
+              <label for="cname">Full Name</label>
+              <input type="text" id="cname" required placeholder="Jasmine Mendez">
+            </div>
+            <div class="field">
+              <label for="cemail">Email Address</label>
+              <input type="email" id="cemail" required placeholder="you@example.com">
+            </div>
+          </div>
+          <div class="field">
+            <label for="csubject">Subject</label>
+            <input type="text" id="csubject" required placeholder="Order inquiry">
+          </div>
+          <div class="field">
+            <label for="cmessage">Message</label>
+            <textarea id="cmessage" rows="5" required placeholder="Tell us what's up…"></textarea>
+          </div>
+          <div class="field">
+            <label for="cdate">Date</label>
+            <input type="date" id="cdate">
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+          <div class="form-msg" id="contactMsg"></div>
+        </form>
+      </div>
+
+      <div>
+        <div class="card" style="padding:28px;">
+          <h3 style="font-family:'Poppins'; font-size:1.1rem; margin-bottom:16px;">Company Information</h3>
+          <ul class="info-list">
+            <li><span class="ic">📍</span> Unit 12B, Ortigas Fashion Hub, Pasig City, Metro Manila</li>
+            <li><span class="ic">📞</span> +63 917 123 4567</li>
+            <li><span class="ic">✉</span> hello@retroglam.ph</li>
+            <li><span class="ic">🕐</span> Mon–Sat, 10:00 AM – 7:00 PM</li>
+          </ul>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="TikTok">TT</a>
+            <a href="#" aria-label="Facebook">FB</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:70px;">
+  <div class="wrap">
+    <div>
+      <a href="/home" class="logo" style="color:#fff;">Retro<span>Glam</span></a>
+      <p style="margin-top:12px; color:rgba(255,255,255,0.7); max-width:32ch; font-size:0.9rem;">Y2K and 2000s-inspired fashion for the nostalgia generation.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul><li><a href="/shop">All Products</a></li><li><a href="/register">Join the Club</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="/contact">Contact Us</a></li><li><a href="/social-campaign">Campaigns</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Retro Glam. A fictional brand created for academic purposes.</div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const msg = document.getElementById('contactMsg');
+    msg.className = 'form-msg ok';
+    msg.textContent = "Thanks! Your message has been sent — we'll reply within 1–2 business days.";
+    this.reset();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Profile — Retro Glam</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/home" class="logo">Retro<span>Glam</span></a>
+    <nav class="mainnav" id="mainNav">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/profile" class="active">Profile</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<section style="padding:60px 0; display:flex; justify-content:center;">
+  <div class="form-card" style="max-width:440px; width:100%;">
+    <h1 style="font-size:1.4rem; margin-bottom:22px;">Edit Profile</h1>
+    <form action="/edit-profile" method="POST">
+      <div class="field">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" value="Hannah" required>
+      </div>
+      <div class="field">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" value="Reyes" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="hannah.reyes@example.com" required>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+        <button type="submit" class="submit-btn" style="width:auto; padding:12px 26px;">Save Changes</button>
+        <a href="/profile" style="color:var(--ink-muted); font-weight:600;">Cancel</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

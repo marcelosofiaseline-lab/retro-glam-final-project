@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Glam — Y2K Fashion Reborn</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/home" class="logo">Retro<span>Glam</span></a>
+    <nav class="mainnav" id="mainNav">
+      <ul>
+        <li><a href="/home" class="active">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/social-campaign">Campaign</a></li>
+        <li><a href="/email-campaign">Email</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="/register" class="nav-cta">Join the Club</a>
+      <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="hero-eyebrow">Y2K &amp; 2000s Revival Fashion</span>
+      <h1>Your passion for<br>fashion, unlocked.</h1>
+      <p class="lede">Retro Glam brings back butterfly clips, low-rise cargos and glitter everything — trendy 2000s-inspired pieces you won't find folded on a mall rack.</p>
+      <div class="hero-actions">
+        <a href="/shop" class="btn btn-primary">Shop Now</a>
+        <a href="/features" class="btn btn-outline">Discover More</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <span class="hero-tag tl">On Sale Now!</span>
+      <div class="word">RETRO<br>GLAM</div>
+      <span class="hero-tag br">Best Seller</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap two-col">
+    <div class="about-visual"><div class="disc"></div></div>
+    <div>
+      <span class="badge-pill">Who we are</span>
+      <h2 style="margin-top:14px;">Nostalgia you can wear</h2>
+      <p style="color:var(--ink-muted); margin-top:14px;">Retro Glam is a Manila-based clothing label for teens and young adults who grew up on early-2000s pop culture and want that same energy in their closet. We hunt down glitter flares, chrome halters and butterfly everything, then bring them back as small, limited drops — so your fit stays as one-of-a-kind as your Xanga page used to be.</p>
+      <div class="stat-row">
+        <div class="stat"><b>15–28</b><span>Our core audience</span></div>
+        <div class="stat"><b>12+</b><span>New drops / month</span></div>
+        <div class="stat"><b>100%</b><span>Y2K-authentic styling</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS (Dataset 1 via GET /api/products) -->
+<section style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Fresh off the rack</span>
+      <h2>Featured pieces</h2>
+      <p>Pulled straight from our live catalog — the same data that powers the full shop page.</p>
+    </div>
+    <div class="grid grid-4" id="featuredGrid">
+      <p class="status-msg">Loading products…</p>
+    </div>
+    <div class="center mt-40">
+      <a href="/shop" class="btn btn-dark">View Full Shop</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOTIONAL SECTION -->
+<section>
+  <div class="wrap">
+    <div class="promo">
+      <div>
+        <h3>Retro Glam Voucher — 20% Off</h3>
+        <p>New members get a welcome discount on any Y2K or 2000s-inspired piece storewide.</p>
+        <span class="code">RETRO20</span>
+      </div>
+      <a href="/register" class="btn btn-primary">Claim My Discount</a>
+    </div>
+  </div>
+</section>
+
+<!-- MULTIMEDIA / PROMO VIDEO -->
+<section style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Watch</span>
+      <h2>See the Retro Glam drop in motion</h2>
+      <p>A quick look at the pieces, the styling and the vibe behind our newest collection.</p>
+    </div>
+    <div class="video-frame">
+      <iframe src="https://youtu.be/7m16dFI1AF8?si=apU9PO91C_0Idsgx" title="Retro Glam Promo Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<footer id="contact-footer">
+  <div class="wrap">
+    <div>
+      <a href="/home" class="logo" style="color:#fff;">Retro<span>Glam</span></a>
+      <p style="margin-top:12px; color:rgba(255,255,255,0.7); max-width:32ch; font-size:0.9rem;">Y2K and 2000s-inspired fashion for the nostalgia generation.</p>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="/shop">All Products</a></li>
+        <li><a href="/features">Why Retro Glam</a></li>
+        <li><a href="/register">Join the Club</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/social-campaign">Campaigns</a></li>
+        <li><a href="/email-campaign">Newsletter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Retro Glam. A fictional brand created for academic purposes.</div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  fetch('/api/products')
+    .then(r => r.json())
+    .then(products => {
+      const grid = document.getElementById('featuredGrid');
+      const featured = products.filter(p => p.tag).slice(0, 4);
+      grid.innerHTML = '';
+      featured.forEach(p => {
+        grid.innerHTML += `
+          <div class="card product-card">
+            <div class="thumb">
+              ${p.tag ? `<span class="badge ${p.tag === 'On Sale' ? 'sale' : ''}">${p.tag}</span>` : ''}
+              ${p.name}
+            </div>
+            <div class="body">
+              <div class="cat">${p.category}</div>
+              <h3>${p.name}</h3>
+              <div class="price-row">
+                <span><span class="price">₱${p.price}</span>${p.oldPrice ? `<span class="old-price">₱${p.oldPrice}</span>` : ''}</span>
+              </div>
+              <a href="/shop" class="btn-cta">View Details</a>
+            </div>
+          </div>`;
+      });
+    })
+    .catch(() => {
+      document.getElementById('featuredGrid').innerHTML = '<p class="error-msg">Could not load products right now.</p>';
+    });
+</script>
+</body>
+</html>

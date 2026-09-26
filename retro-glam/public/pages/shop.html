@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Retro Glam</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/home" class="logo">Retro<span>Glam</span></a>
+    <nav class="mainnav" id="mainNav">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/shop" class="active">Shop</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <a href="/register" class="nav-cta">Join the Club</a>
+      <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:50px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The Shop</span>
+      <h2>Every drop, one page</h2>
+      <p>Search or filter by category to find your next Y2K staple.</p>
+    </div>
+
+    <div class="shop-toolbar">
+      <input type="text" id="searchInput" placeholder="Search for glitter pants, halters, clips…">
+      <button class="chip active" data-cat="all" onclick="setCategory('all', this)">All</button>
+      <button class="chip" data-cat="tops" onclick="setCategory('tops', this)">Tops</button>
+      <button class="chip" data-cat="bottoms" onclick="setCategory('bottoms', this)">Bottoms</button>
+      <button class="chip" data-cat="sets" onclick="setCategory('sets', this)">Sets</button>
+      <button class="chip" data-cat="accessories" onclick="setCategory('accessories', this)">Accessories</button>
+    </div>
+
+    <p class="result-count" id="resultCount"></p>
+    <div class="grid grid-4" id="productGrid">
+      <p class="status-msg">Loading products…</p>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top:20px;">
+  <div class="wrap">
+    <div class="promo">
+      <div>
+        <h3>Members get 20% off</h3>
+        <p>Create a free Retro Glam account to unlock your welcome voucher on any item above.</p>
+      </div>
+      <a href="/register" class="btn btn-primary">Claim My Discount</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="/home" class="logo" style="color:#fff;">Retro<span>Glam</span></a>
+      <p style="margin-top:12px; color:rgba(255,255,255,0.7); max-width:32ch; font-size:0.9rem;">Y2K and 2000s-inspired fashion for the nostalgia generation.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul><li><a href="/shop">All Products</a></li><li><a href="/features">Why Retro Glam</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="/contact">Contact Us</a></li><li><a href="/email-campaign">Newsletter</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Retro Glam. A fictional brand created for academic purposes.</div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  let currentCategory = 'all';
+  let searchTimer;
+
+  function cardHTML(p) {
+    const availClass = p.availability === 'In Stock' ? 'in' : 'low';
+    return `
+      <div class="card product-card">
+        <div class="thumb">
+          ${p.tag ? `<span class="badge ${p.tag === 'On Sale' ? 'sale' : ''}">${p.tag}</span>` : ''}
+          ${p.name}
+        </div>
+        <div class="body">
+          <div class="cat">${p.category}</div>
+          <h3>${p.name}</h3>
+          <p class="desc">${p.description}</p>
+          <div class="price-row">
+            <span><span class="price">₱${p.price}</span>${p.oldPrice ? `<span class="old-price">₱${p.oldPrice}</span>` : ''}</span>
+            <span class="avail ${availClass}">${p.availability}</span>
+          </div>
+          <a href="#" class="btn-cta" onclick="alert('Thanks for your interest in ${p.name.replace(/'/g, "\\'")}! Checkout is a demo feature for this class project.'); return false;">Order Now</a>
+        </div>
+      </div>`;
+  }
+
+  function renderProducts(products) {
+    const grid = document.getElementById('productGrid');
+    const count = document.getElementById('resultCount');
+    if (products.length === 0) {
+      grid.innerHTML = '<p class="status-msg">No products matched your search.</p>';
+    } else {
+      grid.innerHTML = products.map(cardHTML).join('');
+    }
+    count.textContent = `${products.length} item${products.length === 1 ? '' : 's'} found`;
+  }
+
+  function loadProducts() {
+    const q = document.getElementById('searchInput').value.trim();
+    const params = new URLSearchParams();
+    if (q) params.set('q', q);
+    if (currentCategory !== 'all') params.set('category', currentCategory);
+
+    const endpoint = (q || currentCategory !== 'all') ? `/api/products-search?${params}` : '/api/products';
+
+    fetch(endpoint)
+      .then(r => r.json())
+      .then(renderProducts)
+      .catch(() => {
+        document.getElementById('productGrid').innerHTML = '<p class="error-msg">Could not load products. Please try again.</p>';
+      });
+  }
+
+  function setCategory(cat, btn) {
+    currentCategory = cat;
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    loadProducts();
+  }
+
+  document.getElementById('searchInput').addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(loadProducts, 300);
+  });
+
+  loadProducts();
+</script>
+</body>
+</html>

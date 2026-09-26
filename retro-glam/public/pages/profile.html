@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile — Retro Glam</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="/home" class="logo">Retro<span>Glam</span></a>
+    <nav class="mainnav" id="mainNav">
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/profile" class="active">Profile</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<section style="padding:60px 0; display:flex; justify-content:center;">
+  <div class="card" style="max-width:480px; width:100%; padding:36px; text-align:center;">
+    <div style="width:76px; height:76px; border-radius:50%; margin:0 auto 18px; background:var(--grad-hero);"></div>
+    <h1 style="font-size:1.5rem;">Member Profile</h1>
+    <p style="color:var(--ink-muted); margin-bottom:24px;">Manage and view your Retro Glam account</p>
+
+    <div id="profileDetails" style="text-align:left; margin-bottom:24px;">
+      <p class="status-msg center">Loading profile…</p>
+    </div>
+
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="/edit-profile" class="btn btn-dark">Edit Profile</a>
+      <a href="/shop" class="btn btn-outline" style="color:var(--purple-deep); border-color:var(--purple-deep);">Continue Shopping</a>
+    </div>
+  </div>
+</section>
+
+<script src="/js/main.js"></script>
+<script>
+  // Demo: shows customer #1 as the "logged in" member.
+  fetch('/api/customers/1')
+    .then(r => r.json())
+    .then(user => {
+      document.getElementById('profileDetails').innerHTML = `
+        <table class="table-simple">
+          <tr><th>Name</th><td>${user.firstname} ${user.lastname}</td></tr>
+          <tr><th>Email</th><td>${user.email}</td></tr>
+          <tr><th>Age</th><td>${user.age}</td></tr>
+          <tr><th>Member ID</th><td>#${String(user.id).padStart(4, '0')}</td></tr>
+        </table>`;
+    })
+    .catch(() => {
+      document.getElementById('profileDetails').innerHTML = '<p class="error-msg center">Could not load profile.</p>';
+    });
+</script>
+</body>
+</html>
