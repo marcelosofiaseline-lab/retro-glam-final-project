@@ -1,11 +1,12 @@
 var express = require("express");
-var path = require("path");
+var path = path = require("path");
 var fs = require("fs");
 var app = express();
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/js', express.static(path.join(__dirname, 'public/js')));
+app.use('/images', express.static(path.join(__dirname, 'public/images'))); // <-- Added this line for images
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

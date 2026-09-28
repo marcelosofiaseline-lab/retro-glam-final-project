@@ -41,10 +41,10 @@
         <a href="/features" class="btn btn-outline">Discover More</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <span class="hero-tag tl">On Sale Now!</span>
-      <div class="word">RETRO<br>GLAM</div>
-      <span class="hero-tag br">Best Seller</span>
+    <!-- HERO VISUAL WITH LOCAL POSTERGLAM IMAGE -->
+    <div class="hero-visual" style="overflow:hidden; position:relative;">
+      <span class="hero-tag tl" style="z-index:2;">On Sale Now!</span>
+      <img src="/images/posterglam.png" alt="Retro Glam Poster" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; border-radius:inherit;">
     </div>
   </div>
 </section>
@@ -52,7 +52,10 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="wrap two-col">
-    <div class="about-visual"><div class="disc"></div></div>
+    <!-- Local image integrated into the About section -->
+    <div class="about-visual" style="overflow:hidden; position:relative; border-radius:16px;">
+      <img src="/images/nostalgia.jpg" alt="Retro Glam Vibe" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
+    </div>
     <div>
       <span class="badge-pill">Who we are</span>
       <h2 style="margin-top:14px;">Nostalgia you can wear</h2>
@@ -66,7 +69,7 @@
   </div>
 </section>
 
-<!-- FEATURED PRODUCTS (Dataset 1 via GET /api/products) -->
+<!-- FEATURED PRODUCTS -->
 <section style="background:var(--paper);">
   <div class="wrap">
     <div class="section-head">
@@ -106,7 +109,7 @@
       <p>A quick look at the pieces, the styling and the vibe behind our newest collection.</p>
     </div>
     <div class="video-frame">
-      <iframe src="https://youtu.be/7m16dFI1AF8?si=apU9PO91C_0Idsgx" title="Retro Glam Promo Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/mtjmdRpcizU" title="Retro Glam Promo Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -153,9 +156,9 @@
       featured.forEach(p => {
         grid.innerHTML += `
           <div class="card product-card">
-            <div class="thumb">
-              ${p.tag ? `<span class="badge ${p.tag === 'On Sale' ? 'sale' : ''}">${p.tag}</span>` : ''}
-              ${p.name}
+            <div class="thumb" style="overflow:hidden; position:relative;">
+              ${p.tag ? `<span class="badge ${p.tag === 'On Sale' ? 'sale' : ''}" style="z-index:2;">${p.tag}</span>` : ''}
+              <img src="${p.image}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
             </div>
             <div class="body">
               <div class="cat">${p.category}</div>
