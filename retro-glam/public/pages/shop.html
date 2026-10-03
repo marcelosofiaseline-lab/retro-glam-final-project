@@ -88,11 +88,18 @@
 
   function cardHTML(p) {
     const availClass = p.availability === 'In Stock' ? 'in' : 'low';
+
+    // Use the product image if it's a real URL, otherwise show the name
+    const hasImg = p.image && !p.image.startsWith('YOUR_');
+    const thumb = hasImg
+      ? `<img src="${p.image}" alt="${p.name}">`
+      : p.name;
+
     return `
       <div class="card product-card">
         <div class="thumb">
           ${p.tag ? `<span class="badge ${p.tag === 'On Sale' ? 'sale' : ''}">${p.tag}</span>` : ''}
-          ${p.name}
+          ${thumb}
         </div>
         <div class="body">
           <div class="cat">${p.category}</div>
