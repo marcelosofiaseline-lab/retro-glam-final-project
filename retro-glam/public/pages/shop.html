@@ -97,6 +97,9 @@
       ? `<img src="${p.image}" alt="${p.name}">`
       : p.name;
 
+    // Link directly to /order-now 
+    const orderUrl = `/order-now?name=${encodeURIComponent(p.name)}&category=${encodeURIComponent(p.category)}&price=${encodeURIComponent(p.price)}`;
+
     return `
       <div class="card product-card">
         <div class="thumb">
@@ -111,7 +114,7 @@
             <span><span class="price">₱${p.price}</span>${p.oldPrice ? `<span class="old-price">₱${p.oldPrice}</span>` : ''}</span>
             <span class="avail ${availClass}">${p.availability}</span>
           </div>
-          <a href="#" class="btn-cta" onclick="alert('Thanks for your interest in ${p.name.replace(/'/g, "\\'")}! Checkout is a demo feature for this class project.'); return false;">Order Now</a>
+          <a href="${orderUrl}" class="btn-cta">Order Now</a>
         </div>
       </div>`;
   }

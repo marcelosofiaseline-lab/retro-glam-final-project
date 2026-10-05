@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Receipt</title>
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  body {
+    background-color: #fdf6e7;
+    font-family: inherit;
+  }
+
+  .receipt-wrapper {
+    max-width: 420px;
+    margin: 40px auto;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.06));
+  }
+
+  .receipt-card {
+    background: #ffffff;
+    padding: 28px 26px 18px 26px;
+    border-radius: 16px 16px 0 0;
+    border: 1px solid #e8e8e8;
+    border-bottom: none;
+  }
+
+  .receipt-jagged-bottom {
+    height: 14px;
+    background: #ffffff;
+    background-image: linear-gradient(135deg, transparent 75%, #ffffff 75%),
+                      linear-gradient(225deg, transparent 75%, #ffffff 75%);
+    background-size: 14px 14px;
+    background-position: 0 0;
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+  }
+
+  .receipt-header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .receipt-header .kicker {
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  .receipt-header h2 {
+    margin: 4px 0 0 0;
+    font-size: 1.75rem;
+    color: #0d5c46;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px dashed #dcdcdc;
+    margin: 16px 0;
+  }
+
+  .section-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #e05297; 
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 9px 0;
+    font-size: 0.9rem;
+  }
+
+  .receipt-row .label {
+    color: #666;
+  }
+
+  .receipt-row .value {
+    font-weight: 400; 
+    color: #222;
+    text-align: right;
+  }
+
+  .receipt-row .value.highlight {
+    color: #0d5c46;
+    font-weight: 600;
+  }
+
+  .receipt-row .price-tag {
+    color: #e05297;
+    font-weight: 600;
+  }
+
+  .status-badge {
+    background-color: #e6f4ea;
+    color: #0d5c46;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .receipt-footer {
+    text-align: center;
+    margin-top: 18px;
+  }
+
+  .receipt-footer p {
+    font-size: 0.82rem;
+    color: #777;
+    margin-bottom: 16px;
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-receipt-primary {
+    display: block;
+    width: 100%;
+    padding: 9px 16px;
+    background-color: #0d5c46;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid #0d5c46;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background 0.2s ease;
+  }
+
+  .btn-receipt-primary:hover {
+    background-color: #083e2f;
+  }
+
+  .btn-receipt-secondary {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    background-color: transparent;
+    color: #0d5c46;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid #0d5c46;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background 0.2s ease;
+  }
+
+  .btn-receipt-secondary:hover {
+    background-color: rgba(13, 92, 70, 0.05);
+  }
+
+  @media print {
+    body { background: white; }
+    .receipt-wrapper { filter: none; margin: 0 auto; }
+    .button-group { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="receipt-wrapper">
+  <div class="receipt-card">
+    <div class="receipt-header">
+      <span class="kicker">Thank you for your order!</span>
+      <h2>Order Receipt</h2>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="section-title">Order Details</div>
+
+    <div class="receipt-row">
+      <span class="label">Order ID:</span>
+      <span class="value highlight" id="orderId"></span>
+    </div>
+
+    <div class="receipt-row">
+      <span class="label">Order Date & Time:</span>
+      <span class="value" id="orderDate"></span>
+    </div>
+
+    <div class="receipt-row">
+      <span class="label">Item:</span>
+      <span class="value" id="itemName"></span>
+    </div>
+
+    <div class="receipt-row">
+      <span class="label">Category:</span>
+      <span class="value" id="itemCat"></span>
+    </div>
+
+    <div class="receipt-row">
+      <span class="label">Total:</span>
+      <span class="value price-tag">₱<span id="itemPrice"></span></span>
+    </div>
+
+    <div class="receipt-row">
+      <span class="label">Status:</span>
+      <span class="status-badge">Ready to Claim</span>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="receipt-footer">
+      <p>Show this Order Receipt to claim your item in person.</p>
+
+      <div class="button-group">
+        <a href="/shop" class="btn-receipt-primary">Back to Shop</a>
+        <button onclick="window.print()" class="btn-receipt-secondary">Save Receipt</button>
+      </div>
+    </div>
+  </div>
+  <div class="receipt-jagged-bottom"></div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  
+  document.getElementById('orderId').textContent = 'RG-' + Math.floor(100000 + Math.random() * 900000);
+  
+  const now = new Date();
+  const dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
+  const timeOptions = { hour: 'numeric', minute: '2-digit', hour12: true };
+  const formattedDate = now.toLocaleDateString('en-US', dateOptions);
+  const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+  document.getElementById('orderDate').textContent = `${formattedDate} • ${formattedTime}`;
+
+  document.getElementById('itemName').textContent = params.get('name') || 'Item';
+  document.getElementById('itemCat').textContent = params.get('category') || 'N/A';
+  document.getElementById('itemPrice').textContent = params.get('price') || '0';
+</script>
+
+</body>
+</html>

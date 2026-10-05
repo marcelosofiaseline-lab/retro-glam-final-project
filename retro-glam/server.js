@@ -1,18 +1,18 @@
 var express = require("express");
-var path = path = require("path");
+var path = require("path");
 var fs = require("fs");
 var app = express();
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/js', express.static(path.join(__dirname, 'public/js')));
-app.use('/images', express.static(path.join(__dirname, 'public/images'))); // <-- Added this line for images
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /* -----------------------------------------------------------
-   DATASET 2 — Customer information (in-memory, like the sample)
+   DATASET 2 — Customer information (in-memory)
 ----------------------------------------------------------- */
 let customers = [
   { id: 1, firstname: 'Hannah', lastname: 'Reyes', age: 21, email: 'hannah.reyes@example.com' },
@@ -76,8 +76,17 @@ app.get('/edit-profile', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/pages', 'edit-profile.html'));
 });
 
+// Order receipt 
+app.get('/order-now', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public/pages', 'order-now.html'));
+});
+
+app.get('/order-now.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public/pages', 'order-now.html'));
+});
+
 /* -----------------------------------------------------------
-   REST API — GET (Part IV requirement: retrieve & display data)
+   REST API — GET
 ----------------------------------------------------------- */
 
 // Dataset 1: Products
@@ -127,7 +136,7 @@ app.get('/api/customers/:id', function (req, res) {
   }
 });
 
-// Search customers (used by search-user style page)
+// Search customers
 app.get('/api/search', function (req, res) {
   const query = req.query.q ? req.query.q.toLowerCase() : '';
   if (!query) return res.json([]);
@@ -140,7 +149,7 @@ app.get('/api/search', function (req, res) {
 });
 
 /* -----------------------------------------------------------
-   Account creation (registration) — mirrors the sample pattern
+   Account creation & actions
 ----------------------------------------------------------- */
 app.post('/register', function (req, res) {
   const nextId = customers.length > 0 ? customers[customers.length - 1].id + 1 : 1;
