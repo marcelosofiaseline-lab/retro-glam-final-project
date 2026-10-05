@@ -17,7 +17,9 @@
         <li><a href="/shop">Shop</a></li>
         <li><a href="/features">Features</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/profile" class="active">Profile</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/social-campaign">Campaign</a></li>
+        <li><a href="/email-campaign">Email</a></li>
       </ul>
     </nav>
     <div style="display:flex; align-items:center; gap:10px;">
@@ -45,20 +47,29 @@
 
 <script src="/js/main.js"></script>
 <script>
-  // Demo: shows customer #1 as the "logged in" member.
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, m => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+    })[m]);
+  }
+
   fetch('/api/customers/1')
-    .then(r => r.json())
+    .then(r => {
+      if (!r.ok) throw new Error('Failed to load profile');
+      return r.json();
+    })
     .then(user => {
       document.getElementById('profileDetails').innerHTML = `
         <table class="table-simple">
-          <tr><th>Name</th><td>${user.firstname} ${user.lastname}</td></tr>
-          <tr><th>Email</th><td>${user.email}</td></tr>
+          <tr><th>Name</th><td>${escapeHtml(user.firstname)} ${escapeHtml(user.lastname)}</td></tr>
+          <tr><th>Email</th><td>${escapeHtml(user.email)}</td></tr>
           <tr><th>Age</th><td>${user.age}</td></tr>
           <tr><th>Member ID</th><td>#${String(user.id).padStart(4, '0')}</td></tr>
         </table>`;
     })
     .catch(() => {
-      document.getElementById('profileDetails').innerHTML = '<p class="error-msg center">Could not load profile.</p>';
+      document.getElementById('profileDetails').innerHTML = `
+        <p class="error-msg center">Unable to load profile data right now. Please refresh or try again later.</p>`;
     });
 </script>
 </body>

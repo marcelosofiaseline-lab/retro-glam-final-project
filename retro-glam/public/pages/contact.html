@@ -16,8 +16,10 @@
         <li><a href="/home">Home</a></li>
         <li><a href="/shop">Shop</a></li>
         <li><a href="/features">Features</a></li>
-        <li><a href="/contact" class="active">Contact</a></li>
+        <li><a href="/contact">Contact</a></li>
         <li><a href="/profile">Profile</a></li>
+        <li><a href="/social-campaign">Campaign</a></li>
+        <li><a href="/email-campaign">Email</a></li>
       </ul>
     </nav>
     <div style="display:flex; align-items:center; gap:10px;">
@@ -106,12 +108,21 @@
 <script src="/js/main.js"></script>
 <script>
   document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const msg = document.getElementById('contactMsg');
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  const msg = document.getElementById('contactMsg');
+  
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  setTimeout(() => {
     msg.className = 'form-msg ok';
     msg.textContent = "Thanks! Your message has been sent — we'll reply within 1–2 business days.";
     this.reset();
-  });
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+  }, 600);
+});
 </script>
 </body>
 </html>
